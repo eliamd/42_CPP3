@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(const std::string name)
 	std::cout << ">>> 🔨 Constructor with ARG -> (name) called." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy) : name(copy.name), hitPoints(copy.hitPoints), energyPoints(copy.attackDamage), attackDamage(copy.attackDamage)
+ClapTrap::ClapTrap(const ClapTrap &copy) : name(copy.name), hitPoints(copy.hitPoints), energyPoints(copy.energyPoints), attackDamage(copy.attackDamage)
 {
 	std::cout << ">>> 🔨 Copy constructor called." << std::endl;
 }
@@ -53,14 +53,15 @@ void ClapTrap::attack(const std::string &target)
 {
 	if (this->energyPoints <= 0 || this->hitPoints <= 0)
 	{
-		std::cout << ">> 🚫 Attack : No enough points" << std::endl;
+		std::cout << ">> 🚫 Attack :" << this->name << " has no enough points (this->energyPoints : " << this->energyPoints
+		<< ")  (this->hitPoints " << this->hitPoints << ")" <<  std::endl;
 		return;
 	}
 	this->energyPoints -= 1;
     std::cout << "> 🔫 Attack : ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
 }
 
-void ClapTrap::takeDamage(const unsigned int amount)
+void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (amount > 0)
 	{
@@ -69,9 +70,9 @@ void ClapTrap::takeDamage(const unsigned int amount)
 	}
 }
 
-void ClapTrap::beRepaired(const unsigned int amount)
+void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->energyPoints <= 0 || this->hitPoints <= 0)
+		if (this->energyPoints <= 0 || this->hitPoints <= 0)
 	{
 		std::cout << ">> 🚫 Repaired : No enough points" << std::endl;
 		return;

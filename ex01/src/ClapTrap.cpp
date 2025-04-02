@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(const std::string name)
 	std::cout << ">>> 🔨 Constructor with ARG -> (name) called." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy) : name(copy.name), hitPoints(copy.hitPoints), energyPoints(copy.attackDamage), attackDamage(copy.attackDamage)
+ClapTrap::ClapTrap(const ClapTrap &copy) : name(copy.name), hitPoints(copy.hitPoints), energyPoints(copy.energyPoints), attackDamage(copy.attackDamage)
 {
 	std::cout << ">>> 🔨 Copy constructor called." << std::endl;
 }
